@@ -56,6 +56,53 @@
                 directionNav: false
             });
         });
+         var i =0;
+         
+        window.onload=function() {
+            // body...
+            var skin = document.getElementById('skin'),
+            disX = 0, disY = 0;
+            skin.onmousedown=function(e){
+                var e = e|| window.event;
+                disX=e.clientX - this.offsetLeft;
+                disY=e.clientY - this.offsetTop;
+                document.onmousemove = function(e){
+                    var e = e||window.event;
+                    skin.style.left = (e.clientX - disX)+'px';
+                    skin.style.top = (e.clientY - disY)+'px';
+                    $('#skin').removeClass('skin');
+                };
+                document.onmouseup = function(){
+                    document.onmousemove = null;
+                    document.onmouseup = null;
+                   // $('#skin').addClass('skin');
+                };
+                 document.onmouseout = function(){
+                    $('#skin').addClass('skin');
+                    i =0;
+                 }
+                return false;
+            }
+        }
+      //$('#bskin').(alert('a'));
+        function skin(){
+            //var i = 0;
+            console.log(i)
+            if(i == 0){
+            $('.skin').css({'width':'0%','transition':'width 0.3s'});
+            $('.skin div').css({'display':'none'});
+            i++;
+          //  return i
+            console.log(i)
+        }else{
+             $('.skin').css({'width':'19.5%','transition':'width 0.3s'});
+             $('.skin div').css({'display':'inline','transition':'display 0.35s'});
+             i--;
+          console.log(i)
+        }
+          console.log(i)
+        };
+       
     </script>
 <!--[if lt IE 8]>
 <div style=' clear: both; text-align:center; position: relative;'>
@@ -70,8 +117,8 @@
 <![endif]-->
 </head>
     <body>
-        <div class="color_wrap color_wrap_open">
-            <a class="btn_skin"></a>
+        <div class="color_wrap color_wrap_open skin" id="skin">
+            <a class="btn_skin" onclick="skin()"></a>
             <div>skin</div>
             <div class="basic"><a onClick="get_theme('style')">Basic</a></div>
             <div class="theme_1"><a onClick="get_theme('theme_1')">theme_1</a></div>
