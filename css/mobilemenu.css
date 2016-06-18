@@ -4,7 +4,8 @@
 
 	/* Navigation Button
 	-------------------------------------------------------- */
-
+	
+	
 	.nav-button {
 		display: block;
 		position: absolute;
@@ -27,6 +28,14 @@
 
 	/* Navigation Bar
 	-------------------------------------------------------- */
+	.home_page{
+		position: fixed;
+		
+	}
+	.container-fill{
+		padding-top: 65px;
+	}
+
 
 	ul.menu {
 		width:131px;
